@@ -1,10 +1,13 @@
+import 'package:auto_route/src/router/auto_router_x.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_giveaway/giveaway/application/home/giveaway_list_bloc/giveaway_list_bloc.dart';
 import 'package:flutter_giveaway/giveaway/domain/entities/giveaway_model.dart';
 import 'package:flutter_giveaway/giveaway/presentation/core/widgets/error_retry_widget.dart';
+import 'package:flutter_giveaway/giveaway/presentation/home/giveaway_details_page/giveaway_details_page.dart';
 
 import '../../../../../injections.dart';
+import '../../../../../router.dart';
 import 'make_card.dart';
 
 class GiveawayListWidget extends StatelessWidget {
@@ -30,6 +33,8 @@ class GiveawayListWidget extends StatelessWidget {
                     //     MaterialPageRoute(builder: (context) {
                     //       return GiveawayDetailPage(postId: state.giveaway[index].id);
                     //     }));
+                    context.pushRoute( const GiveawayDetailsRoute());
+                    // context.router.pushNamed('/giveaway-details-page');
                   },
                   child: MakeCard(state.giveaways,index),
                 );

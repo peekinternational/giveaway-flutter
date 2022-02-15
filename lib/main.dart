@@ -1,25 +1,25 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 import './injections.dart' as di;
-import 'giveaway/presentation/home/home_page.dart';
+import 'router.dart';
 
 Future<void> main() async {
   await di.init();
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
+
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  MyApp({Key? key}) : super(key: key);
+
+  final _router  = AppRouter();
 
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Flutter Giveaway',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: const HomePage(),
+    return MaterialApp.router(
+      routerDelegate: _router.delegate(),
+      routeInformationParser: _router.defaultRouteParser(),
     );
   }
 }
