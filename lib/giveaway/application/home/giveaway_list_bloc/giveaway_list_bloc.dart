@@ -13,33 +13,6 @@ part 'giveaway_list_state.dart';
 
 class GiveawayListBloc extends Bloc<GiveawayListEvent, GiveawayListState> {
   final GiveawayRepository repository;
-  // GiveawayListBloc({required this.repository}) : super(GiveawayListInitial());
-
-/*  GiveawayListBloc({required this.repository}) : super(GiveawayListInitial())  {
-    eventAHandler(event) async {
-      var result =  await repository.getGiveaways();
-
-
-      if (event is GetGiveawaysEvent)
-      {
-        // emit(GiveawaysLoadingState());
-        print("sss");
-      emit(result.fold((l) => GiveawayListErrorState(),
-      (r) => GiveawayListLoadedState(giveaways: r)));
-      }
-    }
-
-    myEventHandler(event, emit) {
-      event.map(
-          eventA: (event, emit) => eventAHandler(event) // whoops, we didn't pass in `emit`
-      );
-    }
-
-    on<GiveawayListEvent>(myEventHandler);
-
-    // on((event, emit) => eventAHandler(GiveawayListEvent));
-
-  }*/
 
   GiveawayListBloc({required this.repository});
 
@@ -56,11 +29,6 @@ class GiveawayListBloc extends Bloc<GiveawayListEvent, GiveawayListState> {
 
       yield result.fold((l) => GiveawayListErrorState(),
           (r) => GiveawayListLoadedState(giveaways: r));
-      // if (result.isLeft()) {
-      //   yield GiveawayListErrorState();
-      // } else {
-      //   yield GiveawayListLoadedState(giveaways: result.foldRight(, (r, previous) => r));
-      // }
     }
   }
 }

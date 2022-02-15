@@ -10,11 +10,6 @@ class GiveawayListLoadedState extends GiveawayListState{
   final List<GiveawayModel> giveaways;
 
   GiveawayListLoadedState({required this.giveaways});
-
-// GiveawayListLoadedState(this.giveaways);
-
-
-
 }
 
 class GiveawayListErrorState extends GiveawayListState{

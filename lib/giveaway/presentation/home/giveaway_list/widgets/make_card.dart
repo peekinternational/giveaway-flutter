@@ -127,11 +127,11 @@ class MakeCard extends StatelessWidget {
   }
 
   _launchURL(context) async {
-    String url = "https://www.gamerpower.com/open/leisure-suit-larry-in-the-land-of-the-lounge-lizards";
+    String url = giveaway[index].open_giveaway.toString();
     if (await canLaunch(url)) {
       await launch(url);
     } else {
-      throw 'Could not launch '+giveaway[index].openGiveaway.toString();
+      throw 'Could not launch '+giveaway[index].open_giveaway.toString();
     }
   }
 }

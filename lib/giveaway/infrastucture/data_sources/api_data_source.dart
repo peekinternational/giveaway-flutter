@@ -14,6 +14,8 @@ class ApiDataSource implements IGiveawayFacade {
       response = await Dio().get("https://www.gamerpower.com/api/giveaways");
 
       Iterable  jsonGiveaway = response.data;
+      List<GiveawayModel> mm = jsonGiveaway.map((user) => GiveawayModel.fromJson(user)).toList();
+      print(mm[0]);
       return right(
           jsonGiveaway.map((user) => GiveawayModel.fromJson(user)).toList()
           );
